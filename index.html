@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oromgoh</title>
+    <link rel="icon" href="./assets/image 1.png">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <style>
+        /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        header, footer { display: block; }
+        img { max-width: 100%; height: auto; }
+        a { color: black; }
+        /* Global Styles */
+        body { font-family: SF Pro Display,sans-serif; }
+        /* Header Styles */
+        .container { max-width: 1090px; margin: 0 auto; }
+        header { padding: 25px 0px; border-bottom: 1px solid rgba(79, 79, 79, 0.462); border-bottom-style: dashed; }
+        .header__content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-section, .info-section { display: flex; gap: 10px; align-items: center; }
+        .logo-section .logo-section__text { font-size: 18px; font-weight: 700; line-height: 21.48px; color: #00428E; }
+        .info-section .info-section__text, .a { margin-left: 14px; font-size: 18px; font-weight: 700; color: #00428E; text-decoration: none; }
+        /* Ticket Styles  */
+        .ticket { width: 100%; max-width: 1090px; padding-bottom: 24px; border-bottom: 1px solid dashed; border: black;}
+        .ticket__overflow { overflow: hidden; }
+        .ticket__round { border-radius: 30px; background-color: white; display: grid; grid-template-columns: repeat(10, 1fr); padding-top: 20px; padding-bottom: 20px; border-width: 1px; border-style: solid; border-color: black; position: relative; z-index: 1; }
+        .ticket__relative { position: relative; grid-column: span 2; display: flex; align-items: center; height: 100%;}
+        
+        .ticket__rotate { transform: rotate(-90deg); display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 180px; position: relative; }
+        .ticket__flex {display: flex; flex-direction: column; gap: 2px; text-align: center; }
+        .ticket__flex .ticket__text--black { color: black; font-size: 15px; }
+        .ticket__flex h3 { font-size: 40px; }
+        .ticket__hw { transform: rotate(-90deg);height: 30px; width: 22%; }
+        .ticket__cl--bold { color: black;font-weight: 700; font-size: 11px; }
+
+        .ticket__absolute--1 { position: absolute; width: 50px; height: 56px; border-radius: 47%; background-color: white; border-width: 1px; border-style: solid; border-color: black; right: 25px; top: 100%; z-index: 2; }
+        .ticket__absolute--2 { position: absolute; width: 50px; height: 56px; border-radius: 47%; background-color: white; border-width: 1px; border-style: solid; border-color: black; right: 25px; bottom: 100%; z-index: 2; }
+
+        .ticket__column { position: relative; grid-column: span 8; padding-left: 44px; width: 100%; /* border-left-width: 1px; */ /* border-style: dashed; */ border-left: dashed; border-color: black; left: -50px; }
+        .ticket__fl { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(79, 79, 79, 0.462); border-bottom-style: dashed; width: 100%; padding-bottom: 10px; }
+        .ticket__fl2 { /* flex flex-col gap-[4px] mb-[17px] */ display: flex; flex-direction: column; gap: 4px; margin-bottom: 17px; }
+        .ticket__fl2 .ticket__text--black { color: black; font-size: 12px; }
+        .ticket__fl2 .ticket__text--black-font { color: black; font-weight: 700; font-size: 21px;}
+        .ticket__fl3 { display: flex; flex-direction: column; gap: 4px; margin-bottom: 9px; }
+        .ticket__fl3 .ticket__text--black { color: black; font-size: 12px; }
+        .ticket__fl3 .ticket__text--black-font { color: black; font-weight: 700; font-size: 21px; }
+
+        .ticket__width--full { width: 100%; max-width: 135px; }
+        .ticket__width--full .ticket__gap { display: flex; flex-direction: column; gap: 10px; }
+        .ticket__width--full .ticket__gap .ticket__text--center-text { text-align: center; color: black; font-size: 15px; }
+        
+        .ticket__flex--long { display: flex; justify-content: space-between; margin-top: 32px; }
+        .ticket__flex--long .ticket__flex--column1 { display: flex; flex-direction: column; gap: 12px; }
+        .ticket__flex--long .ticket__flex--column2 { display: flex; flex-direction: column; gap: 4px; }
+        .ticket__flex--long .ticket__flex--column2 .ticket__text--black { color: #000000; font-size: 12px; }
+        .ticket__flex--long .ticket__flex--column2 .ticket__text--black-bold { font-size: 16px; }
+
+        .ticket__absolute--up { position: absolute; width: 232px; height: 258px; border-radius: 258px; background-color: white; border-width: 1px; border-style: solid; border-color: black; top: 49px; left: -215px; z-index: 2; }
+        /* Main Section Styles */
+        .main-section { padding: 85px 0; border-bottom: 1px solid rgba(79, 79, 79, 0.462); border-bottom-style: dashed; }
+        .main-section__container2 { max-width: 875px; margin: 0 auto; }
+        .main-section h1 { margin: 33px 0px; }
+        .main-section2 { padding: 85px 0; }
+        .contents { margin: 25px 0; }
+        .contents h4 { padding: 0px 4px; }
+        .contents p { font-size: 16px; }
+        .contents .txt { line-height: 22px; padding-top: 15px; }
+        .contents .text { padding: 2px 5px; font-size: 16.4px; }
+        .contents .cl { color: #00428E; text-decoration: none; }
+        /* Accordion Styles  */
+        .accordion-all__box { display: flex; flex-direction: column; gap: 16px;}
+        .accordion-all__box .title { margin-bottom: 23px;  }
+        .accordion .accordion-blok__text{ width: 100%; display: flex; justify-content: space-between; align-items: center; border:none; outline: none; font-size: 22px; font-weight: 700; cursor: pointer; }
+        .accordion .content{ font-size: 15px; max-height: 0; opacity: 0; line-height: 1.5; overflow: hidden; transition: all 0.5s ease; }
+        .accordion .accordion-blok__text h5 { font-size: 16px; }
+        .accordion .accordion-blok__text img { transform: rotate(180deg); transition: transform 0.3s; color: #fff; }
+        .accordion .content.show { max-height: 200px;  opacity: 1; padding-top: 16px; }
+        .accordion .accordion-blok__text img.rotate { transform: rotate(0deg); }
+        /* Footer Styles */
+        footer { padding: 22px 0; }
+        .footer__flex { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 25px; }
+        .text { display: flex; gap: 20px; align-items: baseline; color: #212121f3; font-size: 14px; font-weight: 400; }
+        .text .text-line { line-height: 22px; }
+        .social-links { display: flex; align-items: center; gap: 11px; }
+    </style>
+</head>
+<body> <!-- onload="window.print()" -->
+    <header>
+        <div class="container">    
+            <div class="header__content">
+                <div class="logo-section">
+                    <img src="./assets/image 1.png" alt="logo" class="logo-section__image">
+                    <p class="logo-section__text">Детские оздоровительные лагеря <br> Республики Узбекистан</p>
+                </div>
+                <div class="info-section">
+                    <img src="./assets/Line 30.png" alt="line" class="info-section__image">
+                    <a href="/" class="info-section a">
+                        <p class="info-section__text">www.oromgoh.com</p>
+                        <img src="./assets/external-link.png" alt="link" class="info-section__image">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-section">
+            <div class="container main-section__container">
+              <div class="ticket">
+                <div class="ticket__overflow">
+                  <div
+                    class="ticket__round">
+                    <div class="ticket__relative">
+                      <div class="ticket__rotate">
+                        <div class="ticket__flex">
+                          <p class="ticket__text--black">
+                            Номер путевки
+                          </p>
+                          <h3 class="ticket__text--dark-gray">
+                            81387421
+                          </h3>
+                        </div>
+                        <div class="ticket__hw">
+                          <img src="./assets/Barcode.png" alt="">
+                        </div>
+                        <h6 class="ticket__cl--bold">
+                          Дата покупки 01-03-2024 10:51
+                        </h6>
+                      </div>
+              
+                      <div class="ticket__absolute--1"></div>
+                      <div class="ticket__absolute--2"></div>
+
+                    </div>
+                    <div class="ticket__column">
+                      <div class="ticket__fl">
+                        <div>
+                          <div class="ticket__fl2">
+                            <p class="ticket__text--black">
+                              Название лагеря
+                            </p>
+                            <h2  class="ticket__text--black-font">
+                              ДОЛ “Угам”
+                            </h2>
+                          </div>
+                          <div class="ticket__fl3">
+                            <p class="ticket__text--black">
+                              Ребенок
+                            </p>
+                            <h2  class="ticket__text--black-font">
+                              Махкамов Бехзодхон Бахром угли, 12 лет
+                            </h2>
+                          </div>
+                          <div class="ticket__fl3">
+                            <p class="ticket__text--black">
+                              Даты смены
+                            </p>
+                            <h2 class="ticket__text--black-font">
+                              1 июня – 14 июня (14 дней)
+                            </h2>
+                          </div>
+                        </div>
+                        <div class="ticket__width--full">
+                          <div class="ticket__gap">
+                            <p class="ticket__text--center-text">
+                              Онлайн путевка
+                            </p>
+                            <img src="./assets/QR Code.png" alt="qrcode">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ticket__flex--long">
+                        <div class="ticket__flex--column1">
+                          <div class="ticket__flex--column2">
+                            <p class="ticket__text--black">
+                              Точка сбора
+                            </p>
+                            <h4 class="ticket__text--black-bold" >
+                              Пахтакор кўчаси 5, Тоshkent
+                            </h4>
+                          </div>
+              
+                          <div class="ticket__flex--column2">
+                            <p class="ticket__text--black fon">
+                              Точка возврата
+                            </p>
+                            <h4 class="ticket__text--black-bold">
+                              Пахтакор кўчаси 5, Тоshkent
+                            </h4>
+                          </div>
+                        </div>
+                        <div class="ticket__flex--column1">
+                          <div class="ticket__flex--column2">
+                            <p class="ticket__text--black">
+                              Дата и время выезда
+                            </p>
+                            <h4 class="ticket__text--black-bold">
+                              1 июнь 2024 7:00
+                            </h4>
+                          </div>
+                          <div class="ticket__flex--column2">
+                            <p class="ticket__text--black">
+                              Дата и время прибытия
+                            </p>
+                            <h4 class="ticket__text--black-bold">
+                              14 июнь 2024 18:00
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ticket__absolute--up"></div>
+                  </div>
+                </div>
+              </div>          
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div class="container2 main-section__container2">
+                <h1>Что дальше?</h1>
+                <div class="contents">
+                  <h4>1. Получение медицинской справки</h4>
+                  <p class="txt">Перед поездкой получите медицинскую справку <a href="/" class="cl">(форма 079/у)</a> в поликлинике по месту прописки вашего ребенка.</p>
+                  <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                </div>
+                <div class="contents">
+                  <h4>2. Подготовка необходимых вещей</h4>
+                  <p class="txt">Убедитесь, что у ребенка собраны все необходимые вещи для комфортного пребывания в лагере. 
+                  <br> Перечень вещей доступен <a href="/" class="cl">здесь</a>.
+                  </p>
+                  <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                </div>
+                <div class="contents">
+                    <h4>3. Точка и время сбора</h4>
+                    <p class="txt">Необходимо прибыть до 12 июня 2024 года до 12:00 по адресу: Прокурор кучаси 23, Ташкент. <a href="/">Показать на карте</a> 
+                    <br> Не забудьте взять с собой:
+                    </p>
+                    <p class="text">1. Копию документа, удостоверяющего личность ребенка (паспорт или свидетельство о рождении).  </p>
+                    <p class="text">2. Путевку, которую можно предъявить в электронном или распечатанном виде.   </p>
+                    <p>Необходимости распечатывать путевку нет, если вы можете предъявить её на мобильном устройстве.</p>
+                    <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                    </div>
+            </div>
+        </section>
+
+        <section class="main-section2">
+            <div class="container2 main-section__container2">  
+                <div class="accordion-all__box">
+                    <h2 class="title">К сведению родителей</h2>
+                    <div class="accordion">
+                        <div class="accordion-blok__text">
+                            <h5>Во сколько надо прибыть в точку сбора?</h5>
+                            <img src="./assets/cheveron-down.png" alt="" class="rotate">
+                        </div>
+                        <div class="content show">
+                            <p>Отправка начинается в 8 часов утра. Просим родителей приехать за час до отправки, чтобы вожатые успели сделать перекличку</p>
+                        </div>
+                        <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-blok__text">
+                            <h5>Какие документы надо взять собой?</h5>
+                            <img src="./assets/cheveron-down.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Отправка начинается в 8 часов утра. Просим родителей приехать за час до отправки, чтобы вожатые успели сделать перекличку</p>
+                        </div>
+                        <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-blok__text">
+                            <h5>Что можно взять собой на дорогу?</h5>
+                            <img src="./assets/cheveron-down.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Отправка начинается в 8 часов утра. Просим родителей приехать за час до отправки, чтобы вожатые успели сделать перекличку</p>
+                        </div>
+                        <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-blok__text">
+                            <h5>Что делать если мы опоздали на сборы?</h5>
+                            <img src="./assets/cheveron-down.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Отправка начинается в 8 часов утра. Просим родителей приехать за час до отправки, чтобы вожатые успели сделать перекличку</p>
+                        </div>
+                        <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-blok__text">
+                            <h5>Во сколько надо приехать, чтобы забрать ребенка?</h5>
+                            <img src="./assets/cheveron-down.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Отправка начинается в 8 часов утра. Просим родителей приехать за час до отправки, чтобы вожатые успели сделать перекличку</p>
+                        </div>
+                        <img src="./assets/Rectangle 1061.png" alt="line" class="contents__image">
+                    </div>
+                </div> 
+            </div>
+        </section>        
+    </main>
+
+    <footer>
+        <div class="container footer__container">
+          <img src="./assets/Divider.png" alt="line" width="100%" class="footer__image">
+          <div class="footer__flex">
+            <div class="text">
+              <p class="text__line">2024 © Департамент по организации отдыха и оздоровления детей. 
+              <br>Все услуги лицензированы.</p>
+              <a href="/">Политика конфиденциальности</a>
+              <a href="/">Публичная оферта</a>
+            </div>
+            <div class="social-links">
+              <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12.304C22 6.74743 17.5229 2.24292 12 2.24292C6.47715 2.24292 2 6.74743 2 12.304C2 17.3257 5.65684 21.4881 10.4375 22.2429V15.2123H7.89844V12.304H10.4375V10.0874C10.4375 7.56588 11.9305 6.17304 14.2146 6.17304C15.3088 6.17304 16.4531 6.36955 16.4531 6.36955V8.84553H15.1922C13.95 8.84553 13.5625 9.62114 13.5625 10.4168V12.304H16.3359L15.8926 15.2123H13.5625V22.2429C18.3432 21.4881 22 17.3259 22 12.304Z" fill="#212121"></path></svg></a>
+              <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 3.24292H8C5.23858 3.24292 3 5.4815 3 8.24292V16.2429C3 19.0043 5.23858 21.2429 8 21.2429H16C18.7614 21.2429 21 19.0043 21 16.2429V8.24292C21 5.4815 18.7614 3.24292 16 3.24292ZM19.25 16.2429C19.2445 18.0355 17.7926 19.4874 16 19.4929H8C6.20735 19.4874 4.75549 18.0355 4.75 16.2429V8.24292C4.75549 6.45027 6.20735 4.99841 8 4.99292H16C17.7926 4.99841 19.2445 6.45027 19.25 8.24292V16.2429ZM16.75 8.49292C17.3023 8.49292 17.75 8.0452 17.75 7.49292C17.75 6.94064 17.3023 6.49292 16.75 6.49292C16.1977 6.49292 15.75 6.94064 15.75 7.49292C15.75 8.0452 16.1977 8.49292 16.75 8.49292ZM12 7.74292C9.51472 7.74292 7.5 9.75764 7.5 12.2429C7.5 14.7282 9.51472 16.7429 12 16.7429C14.4853 16.7429 16.5 14.7282 16.5 12.2429C16.5027 11.0486 16.0294 9.90249 15.1849 9.058C14.3404 8.21351 13.1943 7.74026 12 7.74292ZM9.25 12.2429C9.25 13.7617 10.4812 14.9929 12 14.9929C13.5188 14.9929 14.75 13.7617 14.75 12.2429C14.75 10.7241 13.5188 9.49292 12 9.49292C10.4812 9.49292 9.25 10.7241 9.25 12.2429Z" fill="#212121"></path></svg></a>
+              <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="0.000244141" width="20" height="20" rx="10" fill="#212121"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M4.52672 9.8947C7.44192 8.62459 9.38585 7.78726 10.3585 7.38271C13.1356 6.22761 13.7127 6.02696 14.0888 6.02033C14.1715 6.01888 14.3565 6.03938 14.4763 6.1366C14.5775 6.21869 14.6053 6.32958 14.6186 6.40741C14.6319 6.48524 14.6485 6.66254 14.6353 6.80108C14.4848 8.38231 13.8337 12.2195 13.5024 13.9906C13.3622 14.7399 13.0862 14.9912 12.819 15.0158C12.2382 15.0692 11.7973 14.632 11.2348 14.2633C10.3547 13.6864 9.85747 13.3272 9.00316 12.7643C8.01584 12.1136 8.65588 11.756 9.21854 11.1716C9.3658 11.0187 11.9245 8.69139 11.974 8.48027C11.9802 8.45386 11.9859 8.35544 11.9275 8.30347C11.869 8.2515 11.7827 8.26927 11.7204 8.2834C11.6321 8.30344 10.2261 9.23277 7.50234 11.0714C7.10325 11.3454 6.74176 11.479 6.41788 11.472C6.06083 11.4642 5.37401 11.2701 4.86342 11.1041C4.23717 10.9005 3.73944 10.7929 3.78278 10.4472C3.80536 10.2671 4.05334 10.0829 4.52672 9.8947Z" fill="#FAFAFA"></path></svg></a>
+              <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21.593 7.20325C21.4791 6.78065 21.2565 6.39526 20.9474 6.08542C20.6382 5.77558 20.2533 5.55211 19.831 5.43725C18.265 5.00725 12 5.00025 12 5.00025C12 5.00025 5.73599 4.99325 4.16899 5.40425C3.74692 5.5244 3.36282 5.75103 3.05356 6.06239C2.7443 6.37374 2.52028 6.75937 2.40299 7.18225C1.98999 8.74825 1.98599 11.9963 1.98599 11.9963C1.98599 11.9963 1.98199 15.2603 2.39199 16.8103C2.62199 17.6673 3.29699 18.3443 4.15499 18.5753C5.73699 19.0053 11.985 19.0123 11.985 19.0123C11.985 19.0123 18.25 19.0193 19.816 18.6093C20.2385 18.4946 20.6237 18.2716 20.9336 17.9624C21.2436 17.6532 21.4674 17.2685 21.583 16.8463C21.997 15.2813 22 12.0343 22 12.0343C22 12.0343 22.02 8.76925 21.593 7.20325ZM9.99599 15.0053L10.001 9.00525L15.208 12.0103L9.99599 15.0053Z" fill="#212121"></path></svg></a>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+    <script>
+        const accordions = document.querySelectorAll('.accordion');
+
+        accordions.forEach(accordion =>{
+            const button = accordion.querySelector('.accordion-blok__text');
+            const content = accordion.querySelector('.content');
+            const icon = button.querySelector('img');
+
+            button.addEventListener('click',()=>{
+                accordions.forEach(item => {
+                    if (item !== accordion) {
+                        item.querySelector('.content').classList.remove('show');
+                        item.querySelector('.accordion-blok__text img').classList.remove('rotate');
+                    }
+                });
+
+                content.classList.toggle('show');
+                icon.classList.toggle('rotate');
+            });
+        });
+    </script>
+</body>
+</html>
